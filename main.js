@@ -85,7 +85,6 @@ jsonPracownicy.pracownicy.forEach((staffMember, index) => {
 console.clear();
 
 // class
-
 class Ksiazka {
     constructor(tytul, autor, przeczytana){
         this.tytul = tytul || 'nieznany';
@@ -94,7 +93,7 @@ class Ksiazka {
     }
 
     opiszKsiazke(){
-        return `Książka ma tytuł ${this.tytul}, autorem jest ${this.autor} i ${this.przeczytana ? '' : 'nie '}została przeczytana`
+        return `Książka ma tytuł \"${this.tytul}\", autorem jest ${this.autor} i ${this.przeczytana ? '' : 'nie '}została przeczytana`
     }
 }
 
