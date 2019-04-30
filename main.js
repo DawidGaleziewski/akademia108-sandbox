@@ -150,11 +150,34 @@ console.clear();
 let cities = ['Warsaw', 'Berlin', 'Paris', 'London', 'New York', 'Tokio', 'Moscow'];
 
 const createListOfCities = (cityArray) => {
+    // create ol
     let orderedList = document.createElement("ol");
-    let listItem = document.createElement("li");
-    listItem.classList.add('city');
-    listItem.appendChild(document.createTextNode('test'));
-    orderedList.appendChild(listItem);
-    console.log(orderedList);
+    cityArray.forEach(city=> {
+        // for each city in array create a li
+        let listItem = document.createElement("li");
+        // give it a city class
+        listItem.classList.add('city');
+        // update it with the content of the current array iteration
+        listItem.appendChild(document.createTextNode(city));
+        // inject this list item into array
+        orderedList.appendChild(listItem);
+    })
+    return orderedList
 }
-createListOfCities('test')
+
+// append bodu with the list
+document.body.appendChild(createListOfCities(cities))
+
+console.clear();
+
+let btn = document.getElementsByTagName('button')[0];
+btn.addEventListener('click', ()=> {
+    let list = document.getElementById('items')
+    let listItems = document.querySelectorAll('.item');
+    let newListItem = document.createElement('li');
+    newListItem.classList.add('item');
+    let newListItemText = document.createTextNode(`Item ${listItems.length + 1}`)
+    newListItem.appendChild(newListItemText);
+    list.appendChild(newListItem)
+    // console.log(listItems)
+})
