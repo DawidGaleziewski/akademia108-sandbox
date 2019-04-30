@@ -116,3 +116,45 @@ const iloscPrzeczytanych = (tablicaKsiazek) => {
 }
 
 console.log(`${iloscPrzeczytanych(biblioteczka)} ksiazek zostało przeczytanych`);
+
+
+console.clear();
+
+const bubbleSearch = (numberArray) => {
+    // set flag to ok, if at least one element is out of place it will run again
+    let orderOutOfPlaceflag = true;
+
+    while(orderOutOfPlaceflag){
+        // assume all will be fine
+        orderOutOfPlaceflag = false;
+        // loop array for as many elements as array has
+        for(let i = 0; i < numberArray.length -1; i++){
+            if(numberArray[i] > numberArray[i + 1]){
+                [numberArray[i], numberArray[i + 1]] = [numberArray[i + 1], numberArray[i]]
+                // in this case if at least one number had to be swapped the while loop will not be broken
+                orderOutOfPlaceflag = true;
+            }
+        }
+    }
+    // if while loop was broken display the resault in console
+    console.log(numberArray)
+}
+
+
+bubbleSearch([12, 67, 34, 23.01, 24, 2, 56, 8, 0x10, 23.02, 78, 34, 1e2, 45, 67, 98, 1])
+
+
+console.clear();
+
+// dom
+let cities = ['Warsaw', 'Berlin', 'Paris', 'London', 'New York', 'Tokio', 'Moscow'];
+
+const createListOfCities = (cityArray) => {
+    let orderedList = document.createElement("ol");
+    let listItem = document.createElement("li");
+    listItem.classList.add('city');
+    listItem.appendChild(document.createTextNode('test'));
+    orderedList.appendChild(listItem);
+    console.log(orderedList);
+}
+createListOfCities('test')
